@@ -1,6 +1,7 @@
-FROM ruby:2.4-alpine
+FROM ubuntu:20.04
 
-RUN apk add --no-cache build-base gcc bash \
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get update && apt-get -y install build-essential ruby-bundler libicu-dev \
     && gem install jekyll
 
 EXPOSE 4000
