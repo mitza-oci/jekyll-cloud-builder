@@ -2,8 +2,9 @@ FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt-get -y install \
-    build-essential ruby-dev ruby-bundler libicu-dev \
-    && gem install jekyll
+    ruby-full build-essential cmake pkg-config \
+    zlib1g-dev libicu-dev libssl-dev \
+    && gem install bundler -N
 
 WORKDIR /workspace
 
